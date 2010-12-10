@@ -11,7 +11,6 @@ class Cobra
     set :public, "#{dir}/public"
     set :static, true
     set :lock, true
-    set :run, false
     
     before { joe.restore }
 
