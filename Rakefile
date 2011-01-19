@@ -14,6 +14,7 @@ begin
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "yard", ">= 0"
     gem.add_dependency 'unicorn'
+    gem.add_dependency 'choice'
     gem.add_dependency "sinatra"
     gem.files = Dir.glob('lib/**/*.rb')
     gem.files = Dir.glob('lib/**/**/*')
