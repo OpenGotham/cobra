@@ -10,7 +10,7 @@ class Cobra
     set :views,  "#{dir}/views"
     set :public, "#{dir}/public"
     set :static, true
-    set :lock, true
+    set :lock, false
     
     before { joe.restore }
 
@@ -22,6 +22,7 @@ class Cobra
       joe.last_build.sha
     end
 
+
     get '/?' do
       erb(:template, {}, :joe => joe)
     end
@@ -30,6 +31,10 @@ class Cobra
       payload = params[:payload].to_s
       if payload.empty? || payload.include?(joe.git_branch)
         joe.build(params[:branch])
+      end
+      if params[:restore]
+        joe.restore
+
       end
       redirect request.path
     end
