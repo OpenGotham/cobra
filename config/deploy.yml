@@ -1,8 +1,13 @@
 local:
   domain: "deploy@localhost"
   deploy_to: "/var/www/cobra/cobra"
-  repository: "git://github.com/OpenGotham/cobra.git"
-  #branch: "master"
+  repository: "git@github.com:OpenGotham/cobra.git"
   rake_env:
-    RAILS_ENV: 'production'     
+    RAILS_ENV: 'production'
 
+staging:
+  domain: "ogln001"
+  deploy_to: "/var/www/cobra/cobra"
+  repository: "git@github.com:OpenGotham/cobra.git"
+  rake_env:
+    RAILS_ENV: 'production'
