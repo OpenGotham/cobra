@@ -9,5 +9,5 @@ gem 'unicorn'
 gem 'jeweler'
 gem 'rack-test'
 gem 'whiskey_disk'
-
+gem 'cobra'
 
