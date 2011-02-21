@@ -108,6 +108,8 @@ ul.posts {
   color: #a00;
   font-weight: bold;
   margin-bottom: 2em;
+  width:48%;
+  float:left;
 }
 
   .site .title a {

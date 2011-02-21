@@ -8,44 +8,45 @@
   <body>
     <div class="site">
       <div class="title">
+      <div class="cleft">
         <a href="<%= cobra_root %>/">COBRA</a>
         <span class="extra">because knowing will make the townsfolk arm against you</span>
       </div>
 
-      <div id="home">
-        <h1><a href="<%= joe.url %>"><%= joe.project %></a></h1>
-        <ul class="posts">
-          <% if joe.current_build %>
-            <li>
-              <span class="date"><%= pretty_time(joe.current_build.started_at) if joe.current_build %></span> &raquo;
-              <% if joe.current_build.sha %>
-                Building <a href="<%= joe.current_build.commit.url %>"><%= joe.current_build.short_sha %></a> <small>(pid: <%= joe.pid %>)</small>
-              <% else %>
-                Build starting...
-              <% end %>
-            </li>
-          <% else %>
-            <li><form method="POST"><input type="submit" value="Build"/></form></li>
-          <% end %>
-          
-          <% if joe.last_build %>
-            <li>
-              <span class="date"><%= pretty_time(joe.last_build.finished_at) %></span> &raquo;
-              <% if joe.last_build.sha %>
-                Built <a href="<%= joe.last_build.commit.url %>"><%= joe.last_build.short_sha %></a>
-              <% end %>
-              <span class="<%= joe.last_build.status %>">(<%= joe.last_build.status %>)</span>
-              <% if joe.last_build.duration %>
-                in <span class="duration"><%= joe.last_build.duration %></span> seconds.
-              <% end %>
-            </li>
-            <% if joe.last_build.failed? %>
-              <li><pre class="terminal"><code><%=ansi_color_codes h(joe.last_build.output) %></code></pre></li>
+        <div id="home">
+          <h1><a href="<%= joe.url %>"><%= joe.project %></a></h1>
+          <ul class="posts">
+            <% if joe.current_build %>
+              <li>
+                <span class="date"><%= pretty_time(joe.current_build.started_at) if joe.current_build %></span> &raquo;
+                <% if joe.current_build.sha %>
+                  Building <a href="<%= joe.current_build.commit.url %>"><%= joe.current_build.short_sha %></a> <small>(pid: <%= joe.pid %>)</small>
+                <% else %>
+                  Build starting...
+                <% end %>
+              </li>
+            <% else %>
+              <li><form method="POST"><input type="submit" value="Build"/></form></li>
             <% end %>
-          <% end %>
-        </ul>
-      </div>
-
+            
+            <% if joe.last_build %>
+              <li>
+                <span class="date"><%= pretty_time(joe.last_build.finished_at) %></span> &raquo;
+                <% if joe.last_build.sha %>
+                  Built <a href="<%= joe.last_build.commit.url %>"><%= joe.last_build.short_sha %></a>
+                <% end %>
+                <span class="<%= joe.last_build.status %>">(<%= joe.last_build.status %>)</span>
+                <% if joe.last_build.duration %>
+                  in <span class="duration"><%= joe.last_build.duration %></span> seconds.
+                <% end %>
+              </li>
+              <% if joe.last_build.failed? %>
+                <li><pre class="terminal"><code><%=ansi_color_codes h(joe.last_build.output) %></code></pre></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+        </div>
       <div class="footer">
         <div class="contact">
           <p>
